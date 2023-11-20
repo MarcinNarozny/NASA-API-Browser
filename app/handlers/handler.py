@@ -2,7 +2,7 @@ import requests
 import json
 
 
-with open('key.txt', 'r') as file:
+with open('app/key.txt', 'r') as file:
     key = file.read()
 
 class Handler:

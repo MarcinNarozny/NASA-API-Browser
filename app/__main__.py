@@ -1,9 +1,9 @@
 import tkinter as tk
-from handlers.APOD import APOD
-from handlers.NEO import NEO
-from gui import Page, ScrollList, ListItem, HyperLabel, NASA_GREY, NASA_LIGHT_GREY
+from .handlers.APOD import APOD
+from .handlers.NEO import NEO
+from .gui import Page, ScrollList, ListItem, HyperLabel, NASA_GREY, NASA_LIGHT_GREY
 
-with open('key.txt', 'r') as file:
+with open('app/key.txt', 'r') as file:
     KEY = file.read()
 
 class MainApp(tk.Tk):

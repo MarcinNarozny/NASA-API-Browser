@@ -1,7 +1,7 @@
 import tkinter as tk
-from gui import Page, ScrollList, ListItem, HyperLabel, NASA_GREY, NASA_LIGHT_GREY
+from ..gui import Page, ScrollList, ListItem, HyperLabel, NASA_GREY, NASA_LIGHT_GREY
 import webbrowser
-from handlers.handlers import HandlerNEO_Feed
+from .handler import HandlerNEO_Feed
 from datetime import datetime
 
 

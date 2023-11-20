@@ -1,7 +1,7 @@
 import tkinter as tk
-from gui import Page, ScrollList, ListItem, HyperLabel, NASA_GREY, NASA_LIGHT_GREY
+from ..gui import Page, ScrollList, ListItem, HyperLabel, NASA_GREY, NASA_LIGHT_GREY
 import webbrowser
-from handlers.handlers import HandlerAPOD
+from .handler import HandlerAPOD
 from datetime import datetime
 
 
@@ -70,19 +70,19 @@ class APOD(Page):
                     controller.message.configure(text="ENTER VALID DATE (YYYY-MM-DD)")
                     return
             
-            back = ListItem(content_list.interior)
-            back.place_item()
+            item_background = ListItem(content_list.interior)
+            item_background.place_item()
+  
             for i,k in enumerate(response_item):
-                tk.Label(back,
+                tk.Label(item_background,
                          text=str(k).replace('_', ' ')+" -",
                          justify="right",
                          bg=NASA_GREY,
                          fg="white",
                          font=("Helvetica", 12),
                          ).grid(sticky="ne", column=0, row=i)
-
                 if 'url' in k:
-                    HyperLabel(back,
+                    HyperLabel(item_background,
                                text=response_item[k],
                                justify="left",
                                bg=NASA_GREY,
@@ -91,9 +91,8 @@ class APOD(Page):
                                fg="blue",
                                command= lambda url=response_item[k]: webbrowser.open(url)
                                ).grid(sticky="sw", column=1, row=i)
-
                 else:
-                    tk.Label(back,
+                    tk.Label(item_background,
                              text=str(response_item[k]).replace("\n", ""),
                              wraplength=550,
                              justify="left",
@@ -101,7 +100,7 @@ class APOD(Page):
                              fg=NASA_LIGHT_GREY,
                              font=("Helvetica", 12)
                              ).grid(sticky="sw", column=1, row=i)
-
+                
         def search():   
             match selected_mode.get():
                 case 0:
