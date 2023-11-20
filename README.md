@@ -1,3 +1,3 @@
 ## NASA API Browser
 
-![Browser](docs/browser.png)
+![Browser](docs/browser.PNG)
